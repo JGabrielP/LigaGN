@@ -1,0 +1,27 @@
+<form (ngSubmit)="onLoginEmail()" class="body">
+  <mat-card class="example-card">
+    <div class="header-card">
+      <img class="img" src="assets/img/Logo.png">
+    </div>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Correo Electrónico" [(ngModel)]="email" [formControl]="emailFormControl" required autofocus>
+      <mat-icon matSuffix>email</mat-icon>
+      <mat-error *ngIf="emailFormControl.hasError('pattern')">
+        Por favor ingrese un correo electrónico válido
+      </mat-error>
+      <mat-error *ngIf="emailFormControl.hasError('required')">
+        Correo electrónico <strong>requerido</strong>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <input type="password" matInput placeholder="Contraseña" [(ngModel)]="password" [formControl]="passFormControl" required>
+      <mat-error *ngIf="passFormControl.hasError('required')">
+        Contraseña <strong>requerida</strong>
+      </mat-error>
+      <mat-icon matSuffix>lock</mat-icon>
+    </mat-form-field>
+    <mat-card-actions>
+      <button type="submit" mat-raised-button color="primary">Siguiente</button>
+    </mat-card-actions>
+  </mat-card>
+</form>

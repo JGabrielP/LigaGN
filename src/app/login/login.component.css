@@ -1,0 +1,38 @@
+.body {
+    width: 100%;
+    min-height: 100%;
+    height: auto;
+    position: fixed;
+    top:0; 
+    left:0;
+    background-image: url("/assets/img/backgroundAuth.jpg");
+    background-size: 100% 100%;
+    background-attachment: fixed;
+  }
+  
+  .example-card {
+    width: 400px;
+    padding: 0px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  
+  .header-card {
+    background-color: rgb(63, 81, 181);
+    text-align: center;
+  }
+  
+  .img {
+    margin: 15px;
+    width: 200px;
+    height: 200px;
+  }
+  
+  .example-full-width {
+    margin: 10px;
+    width: 90%;
+  }

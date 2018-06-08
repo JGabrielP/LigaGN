@@ -1,0 +1,20 @@
+<form>
+  <h1 mat-dialog-title>Agregar equipo</h1>
+  <hr>
+  <mat-dialog-content>
+    <mat-form-field>
+      <input type="text" matInput placeholder="Nombre" [(ngModel)]="team.Nombre" name="Nombre"  [formControl]="teamFormControl" required>
+      <mat-icon matSuffix>verified_user</mat-icon>
+      <mat-error *ngIf="teamFormControl.hasError('exists')">Equipo ya existente</mat-error>
+      <mat-error *ngIf="teamFormControl.hasError('required')">
+        Nombre de equipo <strong>requerido</strong>
+      </mat-error>
+    </mat-form-field>
+    <button mat-raised-button type="button" style="margin-left:15px;" onclick="document.getElementById('fileToUpload').click()">Añadir logotipo...</button>
+    <input id="fileToUpload" type="file" (change)="imageSet($event)" class="hide">
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-raised-button color="primary" (click)="onCloseConfirm()">Aceptar</button>
+    <button mat-raised-button color="primary" (click)="onCloseCancel()">Cancelar</button>
+  </mat-dialog-actions>
+</form>

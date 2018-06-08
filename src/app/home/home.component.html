@@ -1,0 +1,57 @@
+<form class="body">
+    <mat-toolbar color="primary" class="nav-bar">
+        <span class="example-spacer">
+            <img src="./assets/img/Logo.png" height="52px">
+        </span>
+        <span class="example-spacer">LIGA DE FUTBOL 2DA FUERZA GUERRERO NEGRO, B. C. SUR</span>
+        <button mat-icon-button [matMenuTriggerFor]="menu">
+            <img [src]="imageUrl || '' " id="imagePreview" class="avatar" matTooltip="Perfil" [matTooltipPosition]="position">
+        </button>
+        <mat-menu #menu="matMenu">
+            <mat-card>
+                <mat-card-header>
+                    <mat-icon class="icon">account_box</mat-icon>
+                    <mat-card-title>{{authService.getEmail()}}</mat-card-title>
+                    <mat-card-subtitle>Administrador</mat-card-subtitle>
+                </mat-card-header>
+            </mat-card>
+            <button mat-menu-item type="button" onclick="document.getElementById('fileToUpload').click()">
+                <label for="imageUpload">
+                    <mat-icon>backup</mat-icon>
+                </label>
+                <span>Cambiar foto de perfil...</span>
+            </button>
+            <input id="fileToUpload" type="file" (change)="uploadProfilePic($event)" class="hide">
+            <button mat-menu-item (click)="logout() ">
+                <mat-icon>exit_to_app</mat-icon>
+                <span>Cerrar sesión</span>
+            </button>
+        </mat-menu>
+    </mat-toolbar>
+    <mat-tab-group dynamicHeight="false" class="tab-height">
+        <mat-tab>
+            <ng-template mat-tab-label>
+                <mat-icon class="example-icon">verified_user</mat-icon>EQUIPOS
+            </ng-template>
+                <app-home-teams></app-home-teams>
+        </mat-tab>
+        <mat-tab>
+            <ng-template mat-tab-label>
+                <mat-icon class="example-icon ">date_range</mat-icon>CALENDARIO
+            </ng-template>
+            <app-home-schedule></app-home-schedule>
+        </mat-tab>
+        <mat-tab>
+            <ng-template mat-tab-label>
+                <mat-icon class="example-icon ">format_list_numbered</mat-icon>TABLA GENERAL
+            </ng-template>
+            <app-home-leaderboard></app-home-leaderboard>
+        </mat-tab>
+        <mat-tab>
+            <ng-template mat-tab-label>
+                <mat-icon class="example-icon ">star_rate</mat-icon>GOLEADORES
+            </ng-template>
+            <app-home-leadergoal></app-home-leadergoal>
+        </mat-tab>
+    </mat-tab-group>
+</form>
